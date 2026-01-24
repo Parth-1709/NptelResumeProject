@@ -10,6 +10,49 @@ interface EvaluationResult {
   suggestions: string[];
 }
 
+const jdDataset = [
+  {
+    role: "Software Engineer",
+    jd: "We are seeking a Software Engineer to design, develop, and maintain scalable software systems. The role requires strong knowledge of data structures, algorithms, object-oriented programming, and problem solving. Experience with Python or Java, version control using Git, REST API development, and database systems is expected."
+  },
+  {
+    role: "Backend Developer",
+    jd: "The Backend Developer will build and maintain server-side applications and RESTful APIs. Required skills include Python, FastAPI, SQL databases, authentication mechanisms, API validation, and performance optimization. Familiarity with deployment workflows and backend debugging is important."
+  },
+  {
+    role: "Frontend Developer",
+    jd: "We are looking for a Frontend Developer to create responsive and user-friendly web interfaces. The candidate should have experience with HTML, CSS, JavaScript, and modern frameworks such as React or Next.js. Knowledge of API integration, state management, and UI optimization is required."
+  },
+  {
+    role: "Full Stack Developer",
+    jd: "The Full Stack Developer will work across both frontend and backend systems. Required skills include JavaScript, React or Next.js for frontend development, FastAPI or Node.js for backend services, REST API design, database integration, and full-stack debugging."
+  },
+  {
+    role: "Data Analyst",
+    jd: "The Data Analyst will analyze structured data to extract insights and support decision making. Required skills include SQL, Python, data cleaning, exploratory data analysis, data visualization, and basic statistical techniques. Experience with dashboards and reporting is preferred."
+  },
+  {
+    role: "Machine Learning Engineer",
+    jd: "We are hiring a Machine Learning Engineer to build and deploy predictive models. The candidate should be proficient in Python, machine learning algorithms, data preprocessing, feature engineering, and model evaluation. Experience with libraries such as scikit-learn, TensorFlow, or PyTorch is expected."
+  },
+  {
+    role: "AI / NLP Engineer",
+    jd: "The AI/NLP Engineer will develop natural language processing pipelines for text analysis. Required skills include Python, spaCy or NLTK, regex-based text processing, entity extraction, semantic analysis, and deploying NLP systems in production environments."
+  },
+  {
+    role: "DevOps Engineer",
+    jd: "The DevOps Engineer will manage application deployment and infrastructure. Required skills include Linux, Docker, CI/CD pipelines, cloud platforms, automation scripting, and monitoring systems. Experience with system reliability and deployment workflows is essential."
+  },
+  {
+    role: "Cyber Security Analyst",
+    jd: "We are looking for a Cyber Security Analyst to identify and mitigate security risks. Required skills include network security, vulnerability assessment, threat analysis, secure coding practices, and familiarity with security tools and protocols."
+  },
+  {
+    role: "QA / Software Testing Engineer",
+    jd: "The QA Engineer will ensure software quality through manual and automated testing. Required skills include test case design, bug tracking, API testing, automation frameworks, and understanding of software development life cycles."
+  }
+];
+
 export default function User() {
   const { data: session } = useSession();
   const [file, setFile] = useState<File | null>(null);
@@ -17,6 +60,12 @@ export default function User() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<EvaluationResult | null>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleRoleSelect = (selectedJd: string) => {
+    setJd(selectedJd);
+    setShowDropdown(false);
+  };
 
   const handleSubmit = async () => {
     if (!file || !jd) return alert("Upload resume and enter JD");
@@ -87,7 +136,7 @@ export default function User() {
               </div>
             </div>
 
-            {/* Submit Button Section (placed here for desktop layout balance, or below) */}
+            {/* Submit Button Section */}
              <div className="flex items-end">
                 <button
                   onClick={handleSubmit}
@@ -115,10 +164,41 @@ export default function User() {
           </div>
 
           {/* Job Description Section */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-300 ml-1">
-              Job Description
-            </label>
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <label className="block text-sm font-medium text-gray-300 ml-1">
+                Job Description
+              </label>
+              
+              {/* Dropdown UI */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="flex items-center justify-between gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-sm font-medium text-gray-200 hover:bg-white/20 transition-all focus:outline-none"
+                >
+                  Quick Select Role
+                  <svg className={`w-4 h-4 transition-transform ${showDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {showDropdown && (
+                  <ul className="absolute right-0 mt-2 w-64 bg-slate-800 border border-white/10 rounded-xl shadow-2xl z-50 py-2 max-h-60 overflow-y-auto backdrop-blur-xl animate-in fade-in zoom-in-95 duration-100">
+                    {jdDataset.map((item) => (
+                      <li key={item.role}>
+                        <button
+                          onClick={() => handleRoleSelect(item.jd)}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors"
+                        >
+                          {item.role}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+
             <textarea
               placeholder="Paste the Job Description here to compare against your resume..."
               value={jd}
@@ -127,6 +207,7 @@ export default function User() {
             />
           </div>
         </div>
+
 
         {/* Error Message */}
         {error && (
