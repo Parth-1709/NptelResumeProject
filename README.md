@@ -62,26 +62,26 @@ This ensures **consistency, transparency, and explainability** in evaluation.
 
 ## 📸 Screenshots
 
-> Add screenshots inside the `screenshots/` folder and update the links below.
+
 
 ### Resume Upload and Job Description Input
 <!-- Replace upload.png with your actual screenshot -->
-![Resume Upload Interface](<img width="1365" height="858" alt="Screenshot 2026-01-28 123906" src="https://github.com/user-attachments/assets/e6724a41-1936-4f71-9223-68ae4e6fa749" />
-)
+![Resume Upload Interface]<img src="https://github.com/user-attachments/assets/e6724a41-1936-4f71-9223-68ae4e6fa749" width="800" alt="Resume Upload Interface" />
+
 
 ---
 
 ### ATS Score and Section-wise Breakdown
 <!-- Replace score.png with your actual screenshot -->
-![ATS Score Output](<img width="1145" height="879" alt="Screenshot 2026-01-28 124532" src="https://github.com/user-attachments/assets/36b05cf7-b097-488c-aa8a-ed5691721596" />
-)
+![ATS Score Output]<img src="https://github.com/user-attachments/assets/36b05cf7-b097-488c-aa8a-ed5691721596" width="800" alt="ATS Score Output" />
+
 
 ---
 
 ### Administrative Dashboard
 <!-- Include only if admin dashboard shows aggregate insights -->
-![Admin Dashboard](<img width="817" height="274" alt="image" src="https://github.com/user-attachments/assets/f6a347c6-b16c-45ef-b08b-4de6fd32cfe8" />
-)
+![Admin Dashboard]<img src="https://github.com/user-attachments/assets/f6a347c6-b16c-45ef-b08b-4de6fd32cfe8" width="600" alt="Admin Dashboard" />
+
 
 ---
 
