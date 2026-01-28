@@ -66,21 +66,21 @@ This ensures **consistency, transparency, and explainability** in evaluation.
 
 ### Resume Upload and Job Description Input
 <!-- Replace upload.png with your actual screenshot -->
-![Resume Upload Interface]<img src="https://github.com/user-attachments/assets/e6724a41-1936-4f71-9223-68ae4e6fa749" width="800" alt="Resume Upload Interface" />
+<img src="https://github.com/user-attachments/assets/e6724a41-1936-4f71-9223-68ae4e6fa749" width="800" alt="Resume Upload Interface" />
 
 
 ---
 
 ### ATS Score and Section-wise Breakdown
 <!-- Replace score.png with your actual screenshot -->
-![ATS Score Output]<img src="https://github.com/user-attachments/assets/36b05cf7-b097-488c-aa8a-ed5691721596" width="800" alt="ATS Score Output" />
+<img src="https://github.com/user-attachments/assets/36b05cf7-b097-488c-aa8a-ed5691721596" width="800" alt="ATS Score Output" />
 
 
 ---
 
 ### Administrative Dashboard
 <!-- Include only if admin dashboard shows aggregate insights -->
-![Admin Dashboard]<img src="https://github.com/user-attachments/assets/f6a347c6-b16c-45ef-b08b-4de6fd32cfe8" width="600" alt="Admin Dashboard" />
+<img src="https://github.com/user-attachments/assets/f6a347c6-b16c-45ef-b08b-4de6fd32cfe8" width="600" alt="Admin Dashboard" />
 
 
 ---
